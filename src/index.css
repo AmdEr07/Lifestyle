@@ -1,0 +1,2304 @@
+/* ==========================================================================
+   INDEX.CSS - ESTILOS GENERALES DEL PROYECTO
+   Paleta elegida:
+   - Blanco roto: #faf8f5
+   - Blanco limpio: #ffffff
+   - Negro suave: #2c2c2c
+   - Gris texto: #5e5e5e
+   - Dorado champagne: #bfa37a
+   - Nude suave: #e8ddd4
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+
+/* RESET GENERAL */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Evita desplazamiento horizontal en móvil */
+html, body { width: 100%; overflow-x: hidden; }
+
+/* Estilo base de toda la web */
+/* Selector body: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+body {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Montserrat', sans-serif;
+  /* Define el color de fondo. */
+  background-color: #faf8f5; /* Fondo blanco roto, más cálido que el blanco puro */
+  /* Define el color del texto. */
+  color: #2c2c2c;
+  /* Mejora suavizado de letras en navegadores WebKit. */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+
+/* Selector .magazine-navbar: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.magazine-navbar {
+  /* Controla el ancho del elemento. */
+  width: 100%;
+  /* Controla la altura del elemento. */
+  height: 75px;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 0 40px;
+  /* Define el fondo del elemento. */
+  background: #faf8f5; /* Mismo tono que el fondo para que quede elegante */
+  /* Define borde inferior. */
+  border-bottom: 1px solid #e8ddd4;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Alinea elementos en el eje principal. */
+  justify-content: space-between;
+  /* Alinea elementos en el eje secundario. */
+  align-items: center;
+  /* Define cómo se coloca el elemento. */
+  position: sticky;
+  /* Distancia desde arriba para elementos posicionados. */
+  top: 0;
+  /* Controla qué elemento queda por delante o por detrás. */
+  z-index: 1000;
+}
+
+.magazine-navbar-left { display: flex; align-items: center; gap: 20px; }
+
+/* Botón hamburguesa */
+/* Selector .menu-hamburguesa: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.menu-hamburguesa {
+  /* Controla el ancho del elemento. */
+  width: 38px;
+  /* Controla la altura del elemento. */
+  height: 38px;
+  /* Define el borde. */
+  border: none;
+  /* Define el fondo del elemento. */
+  background: transparent;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Define la dirección de los elementos en Flexbox. */
+  flex-direction: column;
+  /* Alinea elementos en el eje principal. */
+  justify-content: center;
+  /* Espacio entre elementos hijos. */
+  gap: 5px;
+  /* Cambia el cursor del ratón. */
+  cursor: pointer;
+}
+
+/* Selector .menu-hamburguesa span: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.menu-hamburguesa span {
+  /* Controla el ancho del elemento. */
+  width: 24px;
+  /* Controla la altura del elemento. */
+  height: 2px;
+  /* Define el fondo del elemento. */
+  background: #2c2c2c;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: block;
+  /* Suaviza cambios visuales. */
+  transition: 0.3s ease;
+}
+
+/* Animación de hamburguesa a X */
+.menu-hamburguesa.abierto span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.menu-hamburguesa.abierto span:nth-child(2) { opacity: 0; }
+.menu-hamburguesa.abierto span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Logo de la revista */
+/* Selector .magazine-brand: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.magazine-brand {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: 1.6rem;
+  /* Controla el grosor de la letra. */
+  font-weight: 700;
+  /* Transforma el texto en mayúsculas/minúsculas. */
+  text-transform: uppercase;
+  /* Cambia el cursor del ratón. */
+  cursor: pointer;
+  /* Controla espacios y saltos de línea. */
+  white-space: nowrap;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+}
+
+.magazine-brand span { font-weight: 400; font-style: italic; color: #bfa37a; }
+
+/* Enlaces principales */
+.magazine-nav-links { display: flex; gap: 30px; align-items: center; }
+
+/* Selector .magazine-nav-links a: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.magazine-nav-links a {
+  /* Controla subrayado u otros adornos. */
+  text-decoration: none;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+  /* Controla el tamaño del texto. */
+  font-size: 0.75rem;
+  /* Transforma el texto en mayúsculas/minúsculas. */
+  text-transform: uppercase;
+  /* Separa letras para estilo editorial. */
+  letter-spacing: 1.5px;
+  /* Controla el grosor de la letra. */
+  font-weight: 600;
+  /* Suaviza cambios visuales. */
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.magazine-nav-links a:hover { color: #bfa37a; }
+
+/* Categoría activa */
+/* Selector .active-link: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.active-link {
+  /* Define el color del texto. */
+  color: #bfa37a !important;
+  /* Define borde inferior. */
+  border-bottom: 1px solid #bfa37a;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  padding-bottom: 4px;
+}
+
+/* Parte derecha del navbar */
+.magazine-navbar-right { display: flex; align-items: center; gap: 15px; }
+
+/* Selector .select-idioma, .btn-login, .btn-suscribete: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.select-idioma, .btn-login, .btn-suscribete {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Montserrat', sans-serif;
+  /* Cambia el cursor del ratón. */
+  cursor: pointer;
+}
+
+/* Selector de idioma */
+/* Selector .select-idioma: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.select-idioma {
+  /* Crea espacio interior dentro del elemento. */
+  padding: 8px 10px;
+  /* Define el borde. */
+  border: 1px solid #e8ddd4;
+  /* Define el fondo del elemento. */
+  background: #ffffff;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+}
+
+/* Botón suscripción */
+/* Selector .btn-suscribete: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-suscribete {
+  /* Define el fondo del elemento. */
+  background: #2c2c2c;
+  /* Define el color del texto. */
+  color: #ffffff;
+  /* Define el borde. */
+  border: none;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 12px 22px;
+  /* Controla el grosor de la letra. */
+  font-weight: 700;
+  /* Suaviza cambios visuales. */
+  transition: 0.3s ease;
+}
+
+.btn-suscribete:hover { background: #bfa37a; }
+
+/* Botón login */
+/* Selector .btn-login: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-login {
+  /* Define el fondo del elemento. */
+  background: transparent;
+  /* Define el borde. */
+  border: 1px solid #bfa37a;
+  /* Define el color del texto. */
+  color: #bfa37a;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 10px 16px;
+  /* Suaviza cambios visuales. */
+  transition: 0.3s ease;
+}
+
+.btn-login:hover { background: #bfa37a; color: #ffffff; }
+
+/* Fondo del menú desplegable */
+/* Selector .menu-overlay: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.menu-overlay {
+  /* Define cómo se coloca el elemento. */
+  position: fixed;
+  /* Distancia desde arriba para elementos posicionados. */
+  top: 75px;
+  /* Distancia desde la izquierda. */
+  left: 0;
+  /* Controla el ancho del elemento. */
+  width: 100%;
+  /* Controla la altura del elemento. */
+  height: calc(100vh - 75px);
+  /* Define el fondo del elemento. */
+  background: rgba(250, 248, 245, 0.85);
+  /* Controla qué elemento queda por delante o por detrás. */
+  z-index: 999;
+}
+
+/* Hoja limpia del menú hamburguesa */
+/* Selector .menu-hoja: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.menu-hoja {
+  /* Controla el ancho del elemento. */
+  width: 280px;
+  /* Controla la altura del elemento. */
+  height: 100%;
+  /* Define el fondo del elemento. */
+  background: #ffffff;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 40px 30px;
+  /* Añade sombra para dar profundidad. */
+  box-shadow: 8px 0 25px rgba(0, 0, 0, 0.08);
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Define la dirección de los elementos en Flexbox. */
+  flex-direction: column;
+  /* Espacio entre elementos hijos. */
+  gap: 22px;
+}
+
+/* Selector .menu-hoja a: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.menu-hoja a {
+  /* Controla subrayado u otros adornos. */
+  text-decoration: none;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: 1.6rem;
+  /* Define borde inferior. */
+  border-bottom: 1px solid #e8ddd4;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  padding-bottom: 12px;
+}
+
+.menu-hoja a:hover { color: #bfa37a; }
+
+/* ==========================================================================
+   PORTADA
+   ========================================================================== */
+
+.magazine-layout { width: 100%; }
+
+/* Artículo destacado */
+/* Selector .seccion-portada: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.seccion-portada {
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 1100px;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 0 auto;
+  /* Alinea el texto. */
+  text-align: center;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 60px 20px;
+}
+
+/* Categoría del artículo */
+/* Selector .categoria-link: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.categoria-link {
+  /* Controla el tamaño del texto. */
+  font-size: 0.75rem;
+  /* Controla subrayado u otros adornos. */
+  text-decoration: underline;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  text-underline-offset: 5px;
+  /* Define el color del texto. */
+  color: #bfa37a;
+  /* Controla el grosor de la letra. */
+  font-weight: 600;
+  /* Separa letras para estilo editorial. */
+  letter-spacing: 1px;
+}
+
+/* Título grande */
+/* Selector .titulo-portada: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.titulo-portada {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  /* Controla la altura de línea y legibilidad. */
+  line-height: 1.15;
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 950px;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 20px auto;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+}
+
+/* Texto de introducción */
+/* Selector .extracto-portada: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.extracto-portada {
+  /* Controla el tamaño del texto. */
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  /* Define el color del texto. */
+  color: #5e5e5e;
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 800px;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 0 auto 30px auto;
+  /* Controla la altura de línea y legibilidad. */
+  line-height: 1.8;
+}
+
+/* Imagen principal */
+/* Selector .contenedor-img-portada img: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.contenedor-img-portada img {
+  /* Controla el ancho del elemento. */
+  width: 100%;
+  /* Controla la altura del elemento. */
+  height: 580px;
+  /* Hace que una imagen se adapte al contenedor sin deformarse. */
+  object-fit: cover;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: block;
+  /* Redondea esquinas. */
+  border-radius: 14px;
+}
+
+/* Línea divisoria elegante */
+/* Selector .linea-divisoria: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.linea-divisoria {
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 1100px;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 40px auto;
+  /* Define el borde. */
+  border: none;
+  /* Controla la altura del elemento. */
+  height: 1px;
+  /* Define el fondo del elemento. */
+  background: #d8c8ba;
+}
+
+/* ==========================================================================
+   TARJETAS DE ARTÍCULOS
+   ========================================================================== */
+
+/* Selector .bloque-secundario-posts: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.bloque-secundario-posts {
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 1100px;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 0 auto;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 2rem 20px;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: grid;
+  /* Define las columnas de una cuadrícula CSS Grid. */
+  grid-template-columns: repeat(3, 1fr);
+  /* Espacio entre elementos hijos. */
+  gap: 3rem;
+}
+
+/* Tarjeta individual */
+/* Selector .post-editorial-secundario: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.post-editorial-secundario {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Define la dirección de los elementos en Flexbox. */
+  flex-direction: column;
+  /* Define el fondo del elemento. */
+  background: #ffffff;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 18px;
+  /* Redondea esquinas. */
+  border-radius: 12px;
+  /* Añade sombra para dar profundidad. */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  /* Suaviza cambios visuales. */
+  transition: all 0.3s ease;
+}
+
+/* Selector .post-editorial-secundario:hover: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.post-editorial-secundario:hover {
+  /* Aplica movimiento, giro o escala. */
+  transform: translateY(-4px);
+  /* Añade sombra para dar profundidad. */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Imagen de tarjeta */
+/* Selector .post-editorial-secundario img: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.post-editorial-secundario img {
+  /* Controla el ancho del elemento. */
+  width: 100%;
+  /* Controla la altura del elemento. */
+  height: 320px;
+  /* Hace que una imagen se adapte al contenedor sin deformarse. */
+  object-fit: cover;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: block;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 20px;
+  /* Redondea esquinas. */
+  border-radius: 10px;
+}
+
+/* Texto de tarjeta */
+/* Selector .contenido-editorial: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.contenido-editorial {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Define la dirección de los elementos en Flexbox. */
+  flex-direction: column;
+  /* Alinea elementos en el eje secundario. */
+  align-items: flex-start;
+  /* Alinea el texto. */
+  text-align: left;
+}
+
+/* Selector .contenido-editorial h3: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.contenido-editorial h3 {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: 1.8rem;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 10px 0;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+}
+
+.contenido-editorial h3 a { text-decoration: none; color: inherit; }
+
+/* Selector .contenido-editorial p: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.contenido-editorial p {
+  /* Define el color del texto. */
+  color: #5e5e5e;
+  /* Controla el tamaño del texto. */
+  font-size: 0.9rem;
+  /* Controla la altura de línea y legibilidad. */
+  line-height: 1.7;
+}
+
+/* Botón favoritos */
+/* Selector .btn-favorito: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-favorito {
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-top: 14px;
+  /* Define el fondo del elemento. */
+  background: transparent;
+  /* Define el borde. */
+  border: 1px solid #bfa37a;
+  /* Define el color del texto. */
+  color: #bfa37a;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 8px 14px;
+  /* Controla el tamaño del texto. */
+  font-size: 0.75rem;
+  /* Indica la tipografía que se usa. */
+  font-family: 'Montserrat', sans-serif;
+  /* Transforma el texto en mayúsculas/minúsculas. */
+  text-transform: uppercase;
+  /* Separa letras para estilo editorial. */
+  letter-spacing: 1px;
+  /* Cambia el cursor del ratón. */
+  cursor: pointer;
+  /* Suaviza cambios visuales. */
+  transition: all 0.3s ease;
+}
+
+.btn-favorito:hover { background: #bfa37a; color: #ffffff; }
+
+/* ==========================================================================
+   MENSAJES
+   ========================================================================== */
+
+/* Selector .loading-pantalla, .mensaje-vacio: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.loading-pantalla, .mensaje-vacio {
+  /* Alinea el texto. */
+  text-align: center;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 100px 0;
+  /* Controla el tamaño del texto. */
+  font-size: 1.3rem;
+  /* Define el color del texto. */
+  color: #5e5e5e;
+}
+
+/* ==========================================================================
+   ADMIN, LOGIN Y DETALLE
+   ========================================================================== */
+
+/* Selector .admin-container, .login-container, .post-detail: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-container, .login-container, .post-detail {
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 850px;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 50px auto;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 24px;
+  /* Define el fondo del elemento. */
+  background: #ffffff;
+  /* Redondea esquinas. */
+  border-radius: 14px;
+  /* Añade sombra para dar profundidad. */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.form-admin, .login-container form { display: flex; flex-direction: column; gap: 15px; }
+
+/* Selector .form-admin input, .form-admin textarea, .form-admin select, .login-container input: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.form-admin input, .form-admin textarea, .form-admin select, .login-container input {
+  /* Controla el ancho del elemento. */
+  width: 100%;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 12px;
+  /* Define el borde. */
+  border: 1px solid #e8ddd4;
+  /* Indica la tipografía que se usa. */
+  font-family: 'Montserrat', sans-serif;
+  /* Define el fondo del elemento. */
+  background: #ffffff;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+}
+
+/* Selector .form-admin input:focus, .form-admin textarea:focus, .form-admin select:focus, .login-container input:focus: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.form-admin input:focus, .form-admin textarea:focus, .form-admin select:focus, .login-container input:focus {
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  outline: none;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  border-color: #bfa37a;
+}
+
+/* Selector .form-admin button, .login-container button, .admin-container button: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.form-admin button, .login-container button, .admin-container button {
+  /* Crea espacio interior dentro del elemento. */
+  padding: 12px;
+  /* Define el fondo del elemento. */
+  background: #2c2c2c;
+  /* Define el color del texto. */
+  color: #ffffff;
+  /* Define el borde. */
+  border: none;
+  /* Cambia el cursor del ratón. */
+  cursor: pointer;
+  /* Suaviza cambios visuales. */
+  transition: 0.3s ease;
+}
+
+/* Selector .form-admin button:hover, .login-container button:hover, .admin-container button:hover: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.form-admin button:hover, .login-container button:hover, .admin-container button:hover {
+  /* Define el fondo del elemento. */
+  background: #bfa37a;
+}
+
+.mensaje-admin { color: #bfa37a; margin: 15px 0; }
+
+/* Detalle del post */
+/* Selector .post-detail h1: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.post-detail h1 {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: clamp(2rem, 6vw, 3rem);
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 30px 0;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+}
+
+/* Selector .post-detail img: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.post-detail img {
+  /* Controla el ancho del elemento. */
+  width: 100%;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  max-height: 550px;
+  /* Hace que una imagen se adapte al contenedor sin deformarse. */
+  object-fit: cover;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: block;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 30px;
+  /* Redondea esquinas. */
+  border-radius: 12px;
+}
+
+/* Selector .post-content p: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.post-content p {
+  /* Controla la altura de línea y legibilidad. */
+  line-height: 1.8;
+  /* Define el color del texto. */
+  color: #333;
+}
+
+/* ==========================================================================
+   RESPONSIVE - TABLET
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .magazine-navbar { padding: 0 25px; }
+  .magazine-nav-links { gap: 18px; }
+  .magazine-navbar-right { gap: 10px; }
+  .btn-suscribete { padding: 10px 16px; }
+  .bloque-secundario-posts { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .contenedor-img-portada img { height: 480px; }
+}
+
+/* ==========================================================================
+   RESPONSIVE - MÓVIL
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .magazine-navbar { height: 70px; padding: 0 18px; }
+  .magazine-brand { font-size: 1.15rem; }
+
+  /* En móvil ocultamos los enlaces horizontales y usamos la hamburguesa */
+  .magazine-nav-links, .magazine-navbar-right { display: none; }
+
+  .menu-overlay { top: 70px; height: calc(100vh - 70px); }
+  .menu-hoja { width: 85%; max-width: 320px; padding: 35px 25px; }
+  .menu-hoja a { font-size: 1.45rem; }
+
+  .seccion-portada { padding: 40px 16px; }
+  .titulo-portada { font-size: 2.3rem; }
+  .extracto-portada { font-size: 0.95rem; line-height: 1.7; }
+  .contenedor-img-portada img { height: 360px; }
+
+/* Selector .bloque-secundario-posts: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+  .bloque-secundario-posts {
+    /* Define las columnas de una cuadrícula CSS Grid. */
+    grid-template-columns: 1fr;
+    /* Crea espacio interior dentro del elemento. */
+    padding: 2rem 16px;
+    /* Espacio entre elementos hijos. */
+    gap: 2.5rem;
+  }
+
+  .post-editorial-secundario img { height: 300px; }
+  .contenido-editorial h3 { font-size: 1.6rem; }
+  .admin-container, .login-container, .post-detail { margin: 30px 16px; padding: 18px; }
+}
+
+/* ==========================================================================
+   RESPONSIVE - MÓVIL PEQUEÑO
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .magazine-navbar { padding: 0 14px; }
+  .magazine-brand { font-size: 1rem; }
+  .menu-hamburguesa { width: 34px; }
+
+  .titulo-portada { font-size: 2rem; }
+  .extracto-portada { font-size: 0.9rem; }
+
+  .contenedor-img-portada img { height: 300px; }
+  .post-editorial-secundario img { height: 260px; }
+  .contenido-editorial h3 { font-size: 1.45rem; }
+
+  .btn-favorito { width: 100%; text-align: center; }
+  .post-detail h1 { font-size: 2rem; }
+}
+
+/* Contenedor idioma */
+/* Selector .idioma-wrapper: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.idioma-wrapper {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Alinea elementos en el eje secundario. */
+  align-items: center;
+  
+}
+
+/* Globo terráqueo dorado */
+/* Selector .icono-idioma: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.icono-idioma {
+  /* Define el color del texto. */
+  color: #bfa37a;
+  /* Controla el tamaño del texto. */
+  font-size: 1.1rem;
+}
+
+/* Selector más limpio */
+/* Selector .select-idioma: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.select-idioma {
+  /* Define el borde. */
+  border: none;
+  /* Define el fondo del elemento. */
+  background: transparent;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+  /* Controla el tamaño del texto. */
+  font-size: 0.85rem;
+  /* Indica la tipografía que se usa. */
+  font-family: 'Montserrat', sans-serif;
+  /* Cambia el cursor del ratón. */
+  cursor: pointer;
+}
+/* ==========================================================================
+   MEJORAS NUEVAS - PORTADA PERSONAL
+   ========================================================================== */
+
+/* Sección personal con foto de Amanda y texto de presentación */
+/* Selector .hero-personal: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.hero-personal {
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 1180px;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 50px auto 30px auto;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 30px;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: grid;
+  /* Define las columnas de una cuadrícula CSS Grid. */
+  grid-template-columns: 1.1fr 0.9fr;
+  /* Espacio entre elementos hijos. */
+  gap: 35px;
+  /* Alinea elementos en el eje secundario. */
+  align-items: center;
+  /* Define el fondo del elemento. */
+  background: #ffffff;
+  /* Redondea esquinas. */
+  border-radius: 18px;
+  /* Añade sombra para dar profundidad. */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  
+}
+
+/* Selector .hero-personal-imagen img: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+/* Imagen personal de Amanda */
+.hero-personal-imagen img {
+
+  /* La imagen ocupa todo el ancho disponible. */
+  width: 100%;
+
+  /* La altura se adapta automáticamente a la proporción real de la fotografía. */
+  height: auto;
+
+  /* Muestra la imagen completa sin recortarla. */
+  object-fit: contain;
+
+  /* Mantiene la imagen centrada. */
+  object-position: center;
+
+  /* Evita espacios extra alrededor de la imagen. */
+  display: block;
+
+  /* Redondea las esquinas para mantener el estilo elegante. */
+  border-radius: 16px;
+}
+
+/* Selector .hero-personal-texto h2: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.hero-personal-texto h2 {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  /* Controla la altura de línea y legibilidad. */
+  line-height: 1.05;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 18px 0;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+}
+
+/* Selector .hero-personal-texto h3: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.hero-personal-texto h3 {
+  /* Controla el tamaño del texto. */
+  font-size: 1.05rem;
+  /* Define el color del texto. */
+  color: #bfa37a;
+  /* Transforma el texto en mayúsculas/minúsculas. */
+  text-transform: uppercase;
+  /* Separa letras para estilo editorial. */
+  letter-spacing: 1.4px;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 22px;
+}
+
+/* Selector .hero-personal-texto p: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.hero-personal-texto p {
+  /* Define el color del texto. */
+  color: #5e5e5e;
+  /* Controla la altura de línea y legibilidad. */
+  line-height: 1.9;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 16px;
+}
+
+/* Selector .hero-botones: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.hero-botones {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Espacio entre elementos hijos. */
+  gap: 14px;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  flex-wrap: wrap;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-top: 25px;
+}
+
+.btn-hero-principal,
+.btn-hero-secundario,
+/* Selector .btn-leer-articulo: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-leer-articulo {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: inline-block;
+  /* Controla subrayado u otros adornos. */
+  text-decoration: none;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 12px 22px;
+  /* Indica la tipografía que se usa. */
+  font-family: 'Montserrat', sans-serif;
+  /* Controla el tamaño del texto. */
+  font-size: 0.78rem;
+  /* Transforma el texto en mayúsculas/minúsculas. */
+  text-transform: uppercase;
+  /* Separa letras para estilo editorial. */
+  letter-spacing: 1.2px;
+  /* Controla el grosor de la letra. */
+  font-weight: 700;
+  /* Suaviza cambios visuales. */
+  transition: 0.3s ease;
+}
+
+.btn-hero-principal,
+/* Selector .btn-leer-articulo: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-leer-articulo {
+  /* Define el fondo del elemento. */
+  background: #2c2c2c;
+  /* Define el color del texto. */
+  color: #ffffff;
+  /* Define el borde. */
+  border: 1px solid #2c2c2c;
+}
+
+.btn-hero-principal:hover,
+/* Selector .btn-leer-articulo:hover: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-leer-articulo:hover {
+  /* Define el fondo del elemento. */
+  background: #bfa37a;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  border-color: #bfa37a;
+}
+
+/* Selector .btn-hero-secundario: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-hero-secundario {
+  /* Define el fondo del elemento. */
+  background: transparent;
+  /* Define el color del texto. */
+  color: #bfa37a;
+  /* Define el borde. */
+  border: 1px solid #bfa37a;
+}
+
+/* Selector .btn-hero-secundario:hover: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-hero-secundario:hover {
+  /* Define el fondo del elemento. */
+  background: #bfa37a;
+  /* Define el color del texto. */
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   MEJORAS NUEVAS - BUSCADOR
+   ========================================================================== */
+
+/* Selector .buscador-section: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.buscador-section {
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 760px;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 20px auto 30px auto;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 0 20px;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Define la dirección de los elementos en Flexbox. */
+  flex-direction: column;
+  /* Espacio entre elementos hijos. */
+  gap: 10px;
+  /* Alinea el texto. */
+  text-align: center;
+}
+
+/* Selector .buscador-section label: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.buscador-section label {
+  /* Controla el tamaño del texto. */
+  font-size: 0.8rem;
+  /* Transforma el texto en mayúsculas/minúsculas. */
+  text-transform: uppercase;
+  /* Separa letras para estilo editorial. */
+  letter-spacing: 1.5px;
+  /* Define el color del texto. */
+  color: #bfa37a;
+  /* Controla el grosor de la letra. */
+  font-weight: 700;
+}
+
+/* Selector .buscador-section input: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.buscador-section input {
+  /* Controla el ancho del elemento. */
+  width: 100%;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 14px 18px;
+  /* Define el borde. */
+  border: 1px solid #e8ddd4;
+  /* Redondea esquinas. */
+  border-radius: 999px;
+  /* Indica la tipografía que se usa. */
+  font-family: 'Montserrat', sans-serif;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+  /* Define el fondo del elemento. */
+  background: #ffffff;
+  /* Añade sombra para dar profundidad. */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+/* Selector .buscador-section input:focus: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.buscador-section input:focus {
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  outline: none;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  border-color: #bfa37a;
+}
+
+/* Selector .fecha-articulo: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.fecha-articulo {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: block;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 6px 0 12px 0;
+  /* Define el color del texto. */
+  color: #8a8a8a;
+  /* Controla el tamaño del texto. */
+  font-size: 0.75rem;
+}
+
+/* Selector .fecha-portada: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.fecha-portada {
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-top: -5px;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   MEJORAS NUEVAS - SUSCRIPCIÓN
+   ========================================================================== */
+
+/* Selector .modal-suscripcion-fondo: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.modal-suscripcion-fondo {
+  /* Define cómo se coloca el elemento. */
+  position: fixed;
+  /* Atajo para top/right/bottom/left. */
+  inset: 0;
+  /* Define el fondo del elemento. */
+  background: rgba(0,0,0,0.35);
+  /* Controla qué elemento queda por delante o por detrás. */
+  z-index: 2000;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Alinea elementos en el eje principal. */
+  justify-content: center;
+  /* Alinea elementos en el eje secundario. */
+  align-items: center;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 20px;
+}
+
+/* Selector .modal-suscripcion: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.modal-suscripcion {
+  /* Controla el ancho del elemento. */
+  width: 100%;
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 440px;
+  /* Define el fondo del elemento. */
+  background: #ffffff;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 30px;
+  /* Redondea esquinas. */
+  border-radius: 16px;
+  /* Define cómo se coloca el elemento. */
+  position: relative;
+  /* Añade sombra para dar profundidad. */
+  box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+}
+
+/* Selector .modal-suscripcion h2: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.modal-suscripcion h2 {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: 2rem;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 10px;
+}
+
+/* Selector .modal-suscripcion p: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.modal-suscripcion p {
+  /* Define el color del texto. */
+  color: #5e5e5e;
+  /* Controla la altura de línea y legibilidad. */
+  line-height: 1.7;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 16px;
+}
+
+/* Selector .modal-suscripcion form: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.modal-suscripcion form {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Define la dirección de los elementos en Flexbox. */
+  flex-direction: column;
+  /* Espacio entre elementos hijos. */
+  gap: 12px;
+}
+
+/* Selector .modal-suscripcion input: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.modal-suscripcion input {
+  /* Crea espacio interior dentro del elemento. */
+  padding: 12px;
+  /* Define el borde. */
+  border: 1px solid #e8ddd4;
+  /* Indica la tipografía que se usa. */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Selector .modal-suscripcion button[type="submit"]: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.modal-suscripcion button[type="submit"] {
+  /* Crea espacio interior dentro del elemento. */
+  padding: 12px;
+  /* Define el fondo del elemento. */
+  background: #2c2c2c;
+  /* Define el color del texto. */
+  color: #ffffff;
+  /* Define el borde. */
+  border: none;
+  /* Cambia el cursor del ratón. */
+  cursor: pointer;
+}
+
+/* Selector .cerrar-modal: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.cerrar-modal {
+  /* Define cómo se coloca el elemento. */
+  position: absolute;
+  /* Distancia desde arriba para elementos posicionados. */
+  top: 12px;
+  /* Distancia desde la derecha. */
+  right: 14px;
+  /* Define el borde. */
+  border: none;
+  /* Define el fondo del elemento. */
+  background: transparent;
+  /* Controla el tamaño del texto. */
+  font-size: 1.8rem;
+  /* Cambia el cursor del ratón. */
+  cursor: pointer;
+  /* Define el color del texto. */
+  color: #2c2c2c;
+}
+
+/* Selector .mensaje-suscripcion: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.mensaje-suscripcion {
+  /* Define el color del texto. */
+  color: #bfa37a;
+  /* Controla el grosor de la letra. */
+  font-weight: 600;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-top: 12px;
+}
+
+/* ==========================================================================
+   MEJORAS NUEVAS - FAVORITOS
+   ========================================================================== */
+
+/* Selector .favorito-activo: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.favorito-activo {
+  /* Define el fondo del elemento. */
+  background: #bfa37a !important;
+  /* Define el color del texto. */
+  color: #ffffff !important;
+}
+
+/* Selector .favoritos-page: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.favoritos-page {
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 1180px;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 50px auto;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 0 20px;
+  /* Alinea el texto. */
+  text-align: center;
+}
+
+/* Selector .favoritos-page h2: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.favoritos-page h2 {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: clamp(2rem, 5vw, 3rem);
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 12px;
+}
+
+/* Selector .favoritos-page > p: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.favoritos-page > p {
+  /* Define el color del texto. */
+  color: #5e5e5e;
+  /* Controla la altura de línea y legibilidad. */
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   MEJORAS NUEVAS - ADMIN CRUD COMPLETO
+   ========================================================================== */
+
+/* Selector .admin-container-grande: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-container-grande {
+  /* Marca un ancho máximo para que el diseño no se estire demasiado. */
+  max-width: 1180px;
+}
+
+/* Selector .admin-stats: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-stats {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: grid;
+  /* Define las columnas de una cuadrícula CSS Grid. */
+  grid-template-columns: repeat(5, 1fr);
+  /* Espacio entre elementos hijos. */
+  gap: 14px;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 20px 0 30px 0;
+}
+
+/* Selector .admin-stats div: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-stats div {
+  /* Define el fondo del elemento. */
+  background: #faf8f5;
+  /* Define el borde. */
+  border: 1px solid #e8ddd4;
+  /* Redondea esquinas. */
+  border-radius: 12px;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 16px;
+  /* Alinea el texto. */
+  text-align: center;
+}
+
+/* Selector .admin-stats strong: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-stats strong {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: block;
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: 2rem;
+  /* Define el color del texto. */
+  color: #bfa37a;
+}
+
+/* Selector .admin-stats span: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-stats span {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: block;
+  /* Controla el tamaño del texto. */
+  font-size: 0.75rem;
+  /* Transforma el texto en mayúsculas/minúsculas. */
+  text-transform: uppercase;
+  /* Separa letras para estilo editorial. */
+  letter-spacing: 1px;
+  /* Define el color del texto. */
+  color: #5e5e5e;
+}
+
+/* Selector .btn-cancelar-edicion: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-cancelar-edicion {
+  /* Define el fondo del elemento. */
+  background: #bfa37a !important;
+}
+
+/* Selector .admin-listado: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-listado {
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-top: 45px;
+}
+
+/* Selector .admin-listado h3: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-listado h3 {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: 2rem;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 20px;
+}
+
+/* Selector .admin-articulos-grid: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-articulos-grid {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: grid;
+  /* Define las columnas de una cuadrícula CSS Grid. */
+  grid-template-columns: repeat(2, 1fr);
+  /* Espacio entre elementos hijos. */
+  gap: 22px;
+}
+
+/* Selector .admin-articulo-card: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-articulo-card {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: grid;
+  /* Define las columnas de una cuadrícula CSS Grid. */
+  grid-template-columns: 170px 1fr;
+  /* Espacio entre elementos hijos. */
+  gap: 18px;
+  /* Define el fondo del elemento. */
+  background: #faf8f5;
+  /* Define el borde. */
+  border: 1px solid #e8ddd4;
+  /* Redondea esquinas. */
+  border-radius: 14px;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 16px;
+}
+
+/* Selector .admin-articulo-card img: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-articulo-card img {
+  /* Controla el ancho del elemento. */
+  width: 100%;
+  /* Controla la altura del elemento. */
+  height: 150px;
+  /* Hace que una imagen se adapte al contenedor sin deformarse. */
+  object-fit: cover;
+  /* Redondea esquinas. */
+  border-radius: 10px;
+}
+
+/* Selector .admin-articulo-card h4: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-articulo-card h4 {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: 1.4rem;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 8px 0;
+}
+
+/* Selector .admin-articulo-card p: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-articulo-card p {
+  /* Define el color del texto. */
+  color: #5e5e5e;
+  /* Controla la altura de línea y legibilidad. */
+  line-height: 1.6;
+  /* Controla el tamaño del texto. */
+  font-size: 0.9rem;
+  /* Crea espacio exterior alrededor del elemento. */
+  margin: 8px 0 12px 0;
+}
+
+/* Selector .admin-card-botones: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-card-botones {
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Espacio entre elementos hijos. */
+  gap: 10px;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  flex-wrap: wrap;
+}
+
+/* Selector .admin-card-botones button: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.admin-card-botones button {
+  /* Crea espacio interior dentro del elemento. */
+  padding: 10px 14px;
+  /* Controla el tamaño del texto. */
+  font-size: 0.78rem;
+}
+
+/* Selector .btn-borrar: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-borrar {
+  /* Define el fondo del elemento. */
+  background: #8f2d2d !important;
+}
+
+/* Selector .btn-borrar:hover: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.btn-borrar:hover {
+  /* Define el fondo del elemento. */
+  background: #b34a4a !important;
+}
+
+/* ==========================================================================
+   MEJORAS NUEVAS - DETALLE Y 404
+   ========================================================================== */
+
+/* Selector .detalle-meta: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.detalle-meta {
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-top: 25px;
+}
+
+/* Selector .notfound-page: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.notfound-page {
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  min-height: 80vh;
+  /* Define cómo se comporta el elemento en pantalla. */
+  display: flex;
+  /* Define la dirección de los elementos en Flexbox. */
+  flex-direction: column;
+  /* Alinea elementos en el eje principal. */
+  justify-content: center;
+  /* Alinea elementos en el eje secundario. */
+  align-items: center;
+  /* Alinea el texto. */
+  text-align: center;
+  /* Crea espacio interior dentro del elemento. */
+  padding: 30px;
+}
+
+/* Selector .notfound-page h1: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.notfound-page h1 {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: clamp(5rem, 15vw, 9rem);
+  /* Define el color del texto. */
+  color: #bfa37a;
+}
+
+/* Selector .notfound-page h2: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.notfound-page h2 {
+  /* Indica la tipografía que se usa. */
+  font-family: 'Playfair Display', serif;
+  /* Controla el tamaño del texto. */
+  font-size: 2.5rem;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 12px;
+}
+
+/* Selector .notfound-page p: aplica estilos a los elementos que coinciden con esta clase, etiqueta o estado. */
+.notfound-page p {
+  /* Define el color del texto. */
+  color: #5e5e5e;
+  /* Propiedad CSS que ajusta el aspecto o comportamiento visual del elemento. */
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DE LAS NUEVAS SECCIONES
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+
+  /* Separo las dos columnas de la portada a una sola. */
+  .hero-personal {
+    grid-template-columns: 1fr;
+  }
+
+  /* La fotografía mantiene su proporción original. */
+  .hero-personal-imagen img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .admin-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .admin-articulos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero-personal {
+    margin: 25px 16px;
+    padding: 18px;
+  }
+
+  /* La fotografía sigue mostrándose completa. */
+  .hero-personal-imagen img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero-personal-texto h2 {
+    font-size: 2.4rem;
+  }
+
+  .hero-botones {
+    flex-direction: column;
+  }
+
+  .btn-hero-principal,
+  .btn-hero-secundario,
+  .btn-leer-articulo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-articulo-card {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-articulo-card img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* En móviles pequeños la foto sigue viéndose completa. */
+  .hero-personal-imagen img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   FOOTER - PIE DE PÁGINA
+   ========================================================================== */
+
+/* Footer principal de la web.
+   Sirve para cerrar visualmente la página y dar sensación de proyecto completo. */
+.footer-revista {
+  /* Fondo blanco para mantener la estética limpia de revista. */
+  background: #ffffff;
+
+  /* Borde superior suave para separar el footer del contenido anterior. */
+  border-top: 1px solid #e8ddd4;
+
+  /* Espacio exterior superior para que el footer no quede pegado al contenido. */
+  margin-top: 60px;
+
+  /* Espacio interior arriba y abajo. */
+  padding: 45px 30px 20px 30px;
+
+  /* Color general del texto dentro del footer. */
+  color: #2c2c2c;
+}
+
+/* Contenedor interno del footer.
+   Organiza marca, navegación y contacto en columnas. */
+.footer-contenido {
+  /* Ancho máximo para que el contenido no se estire demasiado. */
+  max-width: 1180px;
+
+  /* Centra el contenido horizontalmente. */
+  margin: 0 auto;
+
+  /* Activa CSS Grid para crear columnas. */
+  display: grid;
+
+  /* Crea tres columnas: marca, navegación y redes/contacto. */
+  grid-template-columns: 1.4fr 0.8fr 0.8fr;
+
+  /* Espacio entre columnas. */
+  gap: 35px;
+
+  /* Alinea los bloques por la parte superior. */
+  align-items: start;
+}
+
+/* Título de la marca dentro del footer. */
+.footer-marca h2 {
+  /* Usa la tipografía elegante del proyecto. */
+  font-family: 'Playfair Display', serif;
+
+  /* Tamaño del logo en el footer. */
+  font-size: 2rem;
+
+  /* Texto en mayúsculas para mantener estilo editorial. */
+  text-transform: uppercase;
+
+  /* Espacio inferior respecto al párrafo. */
+  margin-bottom: 12px;
+}
+
+/* Ampersand del logo en dorado champagne. */
+.footer-marca h2 span {
+  /* Color principal de detalle del proyecto. */
+  color: #bfa37a;
+
+  /* Estilo cursivo para que el símbolo quede más editorial. */
+  font-style: italic;
+
+  /* Peso más ligero para diferenciarlo del resto del logo. */
+  font-weight: 400;
+}
+
+/* Párrafos generales del footer. */
+.footer-marca p,
+.footer-copy p {
+  /* Color gris para lectura suave. */
+  color: #5e5e5e;
+
+  /* Altura de línea cómoda. */
+  line-height: 1.7;
+
+  /* Tamaño de texto equilibrado. */
+  font-size: 0.9rem;
+}
+
+/* Texto de autora del footer. */
+.footer-autora {
+  /* Espacio superior para separarlo de la descripción. */
+  margin-top: 12px;
+
+  /* Color dorado para destacar el nombre profesional. */
+  color: #bfa37a !important;
+
+  /* Texto en mayúsculas para estilo más profesional. */
+  text-transform: uppercase;
+
+  /* Separación entre letras. */
+  letter-spacing: 1px;
+
+  /* Grosor del texto. */
+  font-weight: 700;
+}
+
+/* Títulos pequeños de navegación y contacto. */
+.footer-links h3,
+.footer-redes h3 {
+  /* Tamaño pequeño estilo editorial. */
+  font-size: 0.8rem;
+
+  /* Texto en mayúsculas. */
+  text-transform: uppercase;
+
+  /* Separación entre letras. */
+  letter-spacing: 1.4px;
+
+  /* Color dorado champagne. */
+  color: #bfa37a;
+
+  /* Espacio inferior antes de los enlaces. */
+  margin-bottom: 14px;
+}
+
+/* Bloques de enlaces del footer. */
+.footer-links,
+.footer-redes {
+  /* Activa Flexbox para colocar enlaces en columna. */
+  display: flex;
+
+  /* Coloca cada enlace debajo del anterior. */
+  flex-direction: column;
+
+  /* Separación entre enlaces. */
+  gap: 10px;
+}
+
+/* Enlaces del footer. */
+.footer-links a,
+.footer-redes a {
+  /* Quitamos el subrayado de los enlaces. */
+  text-decoration: none;
+
+  /* Color negro suave. */
+  color: #2c2c2c;
+
+  /* Tamaño de texto. */
+  font-size: 0.9rem;
+
+  /* Suaviza el cambio de color al pasar el ratón. */
+  transition: color 0.3s ease;
+}
+
+/* Efecto hover en enlaces del footer. */
+.footer-links a:hover,
+.footer-redes a:hover {
+  /* Cambia a dorado champagne al pasar el ratón. */
+  color: #bfa37a;
+}
+
+/* Parte final del footer con copyright. */
+.footer-copy {
+  /* Ancho máximo igual al contenido superior. */
+  max-width: 1180px;
+
+  /* Centrado horizontal y separación superior. */
+  margin: 35px auto 0 auto;
+
+  /* Borde superior para separar copyright del resto. */
+  border-top: 1px solid #e8ddd4;
+
+  /* Espacio interior superior. */
+  padding-top: 18px;
+
+  /* Centra el texto. */
+  text-align: center;
+}
+
+/* Responsive del footer en tablet. */
+@media (max-width: 768px) {
+  /* El footer pasa de tres columnas a una sola para que se lea mejor. */
+  .footer-contenido {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  /* Centramos los enlaces en móvil. */
+  .footer-links,
+  .footer-redes {
+    align-items: center;
+  }
+}
+
+/* Responsive del footer en móvil pequeño. */
+@media (max-width: 480px) {
+  /* Reducimos espacio interior para pantallas pequeñas. */
+  .footer-revista {
+    padding: 35px 20px 18px 20px;
+  }
+
+  /* Reducimos el tamaño del logo del footer. */
+  .footer-marca h2 {
+    font-size: 1.6rem;
+  }
+}
+
+
+/* ==========================================================================
+   CABECERA EDITORIAL DE LA PORTADA
+   ========================================================================== */
+
+/* Esta cabecera sustituye a la antigua presentación personal de portada.
+   Ahora la Home empieza como una revista: clara, editorial y centrada en artículos. */
+.cabecera-revista {
+  /* Marca un ancho máximo para que el texto no se estire demasiado. */
+  max-width: 1050px;
+  /* Centra la caja y crea separación respecto al navbar. */
+  margin: 50px auto 10px auto;
+  /* Añade espacio interno. */
+  padding: 50px 24px 30px 24px;
+  /* Centra el texto como portada editorial. */
+  text-align: center;
+}
+
+/* Título principal de la nueva portada. */
+.cabecera-revista h1 {
+  /* Usa la fuente elegante de la revista. */
+  font-family: 'Playfair Display', serif;
+  /* Tamaño adaptable según pantalla. */
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  /* Mejora la lectura del título. */
+  line-height: 1.05;
+  /* Separa el título de la etiqueta y el párrafo. */
+  margin: 18px auto;
+  /* Limita el ancho para que no quede una línea demasiado larga. */
+  max-width: 850px;
+  /* Color principal del texto. */
+  color: #2c2c2c;
+}
+
+/* Texto introductorio de la portada. */
+.cabecera-revista p {
+  /* Color gris suave para no competir con el título. */
+  color: #5e5e5e;
+  /* Altura de línea cómoda para leer. */
+  line-height: 1.8;
+  /* Limita el ancho del párrafo. */
+  max-width: 720px;
+  /* Centra el párrafo. */
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   PÁGINA ACERCA DE
+   ========================================================================== */
+
+/* Página donde ahora vive la foto y la presentación personal. */
+.acerca-page {
+  /* Espacio superior e inferior general. */
+  padding: 55px 20px;
+}
+
+/* Tarjeta principal de la página Acerca de. */
+.acerca-contenedor {
+  /* Ancho máximo de la tarjeta. */
+  max-width: 1180px;
+  /* Centra la tarjeta. */
+  margin: 0 auto;
+  /* Espacio interno. */
+  padding: 34px;
+  /* Fondo blanco para estilo editorial limpio. */
+  background: #ffffff;
+  /* Bordes redondeados. */
+  border-radius: 18px;
+  /* Sombra suave. */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  /* Crea dos columnas: imagen y texto. */
+  display: grid;
+  /* La imagen ocupa un poco menos que el texto. */
+  grid-template-columns: 0.95fr 1.05fr;
+  /* Espacio entre columnas. */
+  gap: 38px;
+  /* Centra verticalmente ambas columnas. */
+  align-items: center;
+}
+
+/* Imagen de la página Acerca de. */
+.acerca-imagen img {
+  /* La imagen ocupa todo el ancho de su columna. */
+  width: 100%;
+  /* Mantiene proporción natural. */
+  height: auto;
+  /* Evita deformaciones. */
+  object-fit: contain;
+  /* Muestra la imagen como bloque sin espacios raros. */
+  display: block;
+  /* Bordes redondeados coherentes con el diseño. */
+  border-radius: 16px;
+}
+
+/* Título con el nombre de Amanda. */
+.acerca-texto h1 {
+  /* Fuente editorial elegante. */
+  font-family: 'Playfair Display', serif;
+  /* Tamaño adaptable. */
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  /* Altura de línea compacta para título grande. */
+  line-height: 1;
+  /* Separación alrededor del título. */
+  margin: 18px 0;
+  /* Color principal. */
+  color: #2c2c2c;
+}
+
+/* Subtítulo profesional. */
+.acerca-texto h2 {
+  /* Tamaño intermedio. */
+  font-size: 1rem;
+  /* Color dorado champagne. */
+  color: #bfa37a;
+  /* Texto en mayúsculas para estilo profesional. */
+  text-transform: uppercase;
+  /* Separación entre letras. */
+  letter-spacing: 1.2px;
+  /* Separación inferior. */
+  margin-bottom: 22px;
+}
+
+/* Párrafos de presentación. */
+.acerca-texto p {
+  /* Color gris suave. */
+  color: #5e5e5e;
+  /* Altura de línea amplia para lectura cómoda. */
+  line-height: 1.9;
+  /* Separación entre párrafos. */
+  margin-bottom: 16px;
+}
+
+/* Responsive de cabecera y página Acerca de. */
+@media (max-width: 900px) {
+  .acerca-contenedor {
+    /* En tablet/móvil pasa a una sola columna. */
+    grid-template-columns: 1fr;
+  }
+
+  .cabecera-revista {
+    /* Reduce espacio en pantallas medianas. */
+    margin-top: 30px;
+    padding-top: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .acerca-page {
+    /* Menos espacio exterior en móvil pequeño. */
+    padding: 30px 16px;
+  }
+
+  .acerca-contenedor {
+    /* Menos padding para que quepa mejor. */
+    padding: 20px;
+  }
+}
+
+
+/* ==========================================================================
+   REMATE FINAL - IDENTIDAD VERDE SALVIA + DORADO CHAMPAGNE
+   ========================================================================== */
+
+:root {
+  --color-fondo-salvia: #F7F6F2;
+  --color-blanco-salvia: #FFFFFF;
+  --color-texto-salvia: #2C2C2C;
+  --color-gris-salvia: #5E5E5E;
+  --color-verde-salvia: #A8B8A0;
+  --color-verde-profundo: #5E735F;
+  --color-dorado-salvia: #C9B07A;
+  --color-beige-salvia: #EAE1D7;
+  
+}
+
+body {
+  background:
+    linear-gradient(
+      rgba(247,246,242,0.55),
+      rgba(247,246,242,0.55)
+    ),
+    url('/images/fondo_acuarela.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* NAVBAR CON EFECTO LIMPIO. */
+.magazine-navbar {
+  background: rgba(247, 246, 242, 0.94) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-beige-salvia) !important;
+}
+
+.magazine-brand span {
+  color: var(--color-dorado-salvia) !important;
+}
+
+.magazine-nav-links a:hover,
+.menu-hoja a:hover {
+  color: var(--color-verde-profundo) !important;
+}
+
+.active-link {
+  color: var(--color-verde-profundo) !important;
+  border-bottom: 1px solid var(--color-verde-profundo) !important;
+}
+
+.categoria-link,
+.icono-idioma {
+  color: var(--color-verde-profundo) !important;
+}
+
+.btn-suscribete,
+.btn-portada-salvia,
+.btn-leer-articulo {
+  background: var(--color-verde-profundo) !important;
+  color: #ffffff !important;
+  border-color: var(--color-verde-profundo) !important;
+}
+
+.btn-suscribete:hover,
+.btn-portada-salvia:hover,
+.btn-leer-articulo:hover {
+  background: var(--color-dorado-salvia) !important;
+  border-color: var(--color-dorado-salvia) !important;
+}
+
+.btn-login,
+.btn-favorito,
+.btn-hero-secundario {
+  border-color: var(--color-verde-salvia) !important;
+  color: var(--color-verde-profundo) !important;
+}
+
+.btn-login:hover,
+.btn-favorito:hover,
+.btn-hero-secundario:hover {
+  background: var(--color-verde-salvia) !important;
+  color: #ffffff !important;
+}
+
+/* NUEVA PORTADA PRINCIPAL. */
+.portada-salvia {
+  max-width: 1180px;
+  margin: 55px auto 35px auto;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.portada-salvia-texto {
+  padding: 30px 0;
+}
+
+.pretitle-salvia {
+  display: inline-block;
+  color: var(--color-verde-profundo);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.portada-salvia-texto h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.6rem, 8vw, 6.8rem);
+  line-height: 0.95;
+  color: var(--color-texto-salvia);
+  margin-bottom: 22px;
+}
+
+.portada-salvia-texto h1 span {
+  color: var(--color-dorado-salvia);
+}
+
+.portada-salvia-texto p {
+  max-width: 460px;
+  color: var(--color-texto-salvia);
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.btn-portada-salvia {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px 28px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.portada-salvia-imagen {
+  border: 3px solid rgba(255, 255, 255, 0.82);
+  padding: 12px;
+  background: rgba(255,255,255,0.45);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.06);
+}
+
+.imagen-hojas {
+  min-height: 380px;
+  background:
+    linear-gradient(rgba(0,0,0,0.02), rgba(0,0,0,0.12)),
+    url('/serena.jpg');
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* ACCESOS A CATEGORIAS. */
+.categorias-salvia {
+  max-width: 1180px;
+  margin: 20px auto 35px auto;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.categoria-salvia-card {
+  background: rgba(255,255,255,0.86);
+  border: 1px solid rgba(234, 225, 215, 0.95);
+  text-decoration: none;
+  color: var(--color-texto-salvia);
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.035);
+  transition: all 0.3s ease;
+}
+
+.categoria-salvia-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-verde-salvia);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.07);
+}
+
+.icono-categoria {
+  display: block;
+  color: var(--color-verde-profundo);
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.categoria-salvia-card h3 {
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.categoria-salvia-card p {
+  color: var(--color-texto-salvia);
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+/* Cabeceras de categorías. */
+.cabecera-categoria-salvia {
+  max-width: 940px;
+  margin: 60px auto 25px auto;
+  padding: 60px 25px 35px 25px;
+  text-align: center;
+}
+
+.cabecera-categoria-salvia h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.02;
+  margin: 18px auto;
+  color: var(--color-texto-salvia);
+}
+
+.cabecera-categoria-salvia p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--color-gris-salvia);
+  line-height: 1.8;
+}
+
+/* Buscador integrado en la estética. */
+.buscador-section {
+  max-width: 720px;
+  margin: 35px auto 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.buscador-section label {
+  display: block;
+  color: var(--color-verde-profundo);
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.buscador-section input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid var(--color-beige-salvia);
+  border-radius: 30px;
+  background: rgba(255,255,255,0.92);
+  color: var(--color-texto-salvia);
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.035);
+}
+
+.buscador-section input:focus {
+  outline: none;
+  border-color: var(--color-verde-salvia);
+}
+
+/* Destacado de portada. */
+.articulo-destacado-salvia {
+  max-width: 1180px;
+  margin: 35px auto 35px auto;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.articulo-destacado-imagen img {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.articulo-destacado-texto {
+  background: rgba(255,255,255,0.88);
+  padding: 38px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.045);
+}
+
+.articulo-destacado-texto h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  margin: 18px 0;
+}
+
+.articulo-destacado-texto p {
+  color: var(--color-gris-salvia);
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+/* Título de listado. */
+.titulo-listado-salvia {
+  max-width: 1180px;
+  margin: 45px auto 10px auto;
+  padding: 0 22px;
+  text-align: center;
+}
+
+.titulo-listado-salvia h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin-top: 10px;
+}
+
+/* Tarjetas de artículos. */
+.bloque-secundario-posts {
+  max-width: 1180px !important;
+  margin: 0 auto 60px auto !important;
+  padding: 2rem 22px 4rem 22px !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+}
+
+.post-editorial-secundario {
+  background: rgba(255,255,255,0.92) !important;
+  border: 1px solid rgba(234,225,215,0.75);
+  border-radius: 0 !important;
+  overflow: hidden;
+  padding: 0 !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.045) !important;
+}
+
+.contenedor-img-secundario img,
+.post-editorial-secundario img {
+  width: 100% !important;
+  height: 255px !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+.contenido-editorial {
+  padding: 22px !important;
+}
+
+.contenido-editorial h3 {
+  font-size: 1.55rem !important;
+  line-height: 1.15 !important;
+}
+
+.btn-leer-articulo {
+  display: inline-block;
+  margin-top: 16px;
+  text-decoration: none;
+  padding: 11px 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Footer con paleta salvia. */
+.footer-revista {
+  background: var(--color-verde-profundo) !important;
+  color: #ffffff !important;
+}
+
+.footer-revista a,
+.footer-revista p,
+.footer-revista h2,
+.footer-revista h3 {
+  color: #ffffff !important;
+}
+
+.footer-revista span {
+  color: var(--color-dorado-salvia) !important;
+}
+
+/* Sobre mí integrado con la nueva paleta. */
+.acerca-contenedor {
+  background: rgba(255,255,255,0.90) !important;
+  border: 1px solid rgba(234,225,215,0.75);
+}
+
+/* Responsive final. */
+@media (max-width: 1024px) {
+  .portada-salvia,
+  .articulo-destacado-salvia {
+    grid-template-columns: 1fr;
+  }
+
+  .categorias-salvia {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bloque-secundario-posts {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .portada-salvia {
+    margin: 30px auto 20px auto;
+    gap: 24px;
+  }
+
+  .portada-salvia-texto h1 {
+    font-size: 3.8rem;
+  }
+
+  .imagen-hojas {
+    min-height: 260px;
+  }
+
+  .categorias-salvia,
+  .bloque-secundario-posts {
+    grid-template-columns: 1fr !important;
+  }
+
+  .articulo-destacado-texto {
+    padding: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portada-salvia-texto h1 {
+    font-size: 3rem;
+  }
+
+  .cabecera-categoria-salvia {
+    margin-top: 35px;
+    padding-top: 35px;
+  }
+}
+
+/* ==========================================================================
+   ICONOS DEL FOOTER
+   ========================================================================== */
+
+.lista-iconos-footer {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 0;
+  list-style: none;
+}
+
+.icono-contacto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+
+  color: #ffffff;
+  font-size: 1.2rem;
+
+  transition: all 0.3s ease;
+}
+
+.icono-contacto:hover {
+  background: #c9b07a;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
