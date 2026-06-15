@@ -1,4 +1,5 @@
 # 🌿 Moda & Lifestyle
+<img width="1904" height="907" alt="image" src="https://github.com/user-attachments/assets/4b985a94-b1de-4352-b0d0-af3ccfecf39c" />
 
 ## Mi proyecto final de React
 
