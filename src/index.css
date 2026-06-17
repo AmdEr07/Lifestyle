@@ -1994,7 +1994,7 @@ body {
   gap: 18px;
 }
 
-.categoria-salvia-card {
+.categoria-salvia-tarjetas {
   background: rgba(255,255,255,0.86);
   border: 1px solid rgba(234, 225, 215, 0.95);
   text-decoration: none;
@@ -2005,7 +2005,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.categoria-salvia-card:hover {
+.categoria-salvia-tarjetas:hover {
   transform: translateY(-5px);
   border-color: var(--color-verde-salvia);
   box-shadow: 0 12px 28px rgba(0,0,0,0.07);
@@ -2018,14 +2018,14 @@ body {
   margin-bottom: 10px;
 }
 
-.categoria-salvia-card h3 {
+.categoria-salvia-tarjetas h3 {
   text-transform: uppercase;
   letter-spacing: 1.4px;
   font-size: 0.95rem;
   margin-bottom: 8px;
 }
 
-.categoria-salvia-card p {
+.categoria-salvia-tarjetas p {
   color: var(--color-texto-salvia);
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
@@ -2301,4 +2301,33 @@ body {
   background: #c9b07a;
   color: #ffffff;
   transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   CORRECCIÓN REAL - ALINEAR BOTONES DE FAVORITOS EN HOME
+   ========================================================================== */
+
+.bloque-secundario-posts {
+  align-items: stretch !important;
+}
+
+.post-editorial-secundario {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.contenido-editorial {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.contenido-editorial p {
+  min-height: 72px !important;
+}
+
+.btn-favorito {
+  margin-top: auto !important;
 }

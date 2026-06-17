@@ -9,9 +9,6 @@ import ArticleCard from "../components/ArticleCard";
 import { servicioBlog } from "../services/api";
 
 export default function Favoritos() {
-  // Estado para el idioma del navbar.
-  const [idioma, setIdioma] = useState("es");
-
   // Estado donde guardamos los artículos favoritos completos.
   const [favoritos, setFavoritos] = useState([]);
 
@@ -45,12 +42,7 @@ export default function Favoritos() {
 
   return (
     <>
-      <Navbar
-        idioma={idioma}
-        setIdioma={setIdioma}
-        categoriaActiva=""
-
-      />
+      <Navbar categoriaActiva="" />
 
       <main className="favoritos-page">
         <h2>Mis artículos favoritos</h2>
@@ -70,7 +62,6 @@ export default function Favoritos() {
               <ArticleCard
                 key={articulo.id}
                 articulo={articulo}
-                idioma={idioma}
               />
             ))}
           </div>

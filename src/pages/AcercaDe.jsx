@@ -7,23 +7,13 @@
 import Navbar from "../components/Navbar";
 
 // Importamos la foto elegida para la sección personal.
-import fotoAmanda from "../assets/foto_proyecto.jpg";
+import fotoAmanda from "../assets/Foto_proyecto.jpg";
 
 export default function AcercaDe() {
-  // En esta página dejamos el idioma fijo en español porque es una presentación personal.
-  // Si más adelante quieres traducirla, se podría crear un estado de idioma como en Home.
-  const idioma = "es";
-  const setIdioma = () => {};
-
   return (
     <>
       {/* Navbar superior para mantener la misma navegación que en el resto de la web */}
-      <Navbar
-        idioma={idioma}
-        setIdioma={setIdioma}
-        categoriaActiva="SOBRE"
-
-      />
+      <Navbar categoriaActiva="SOBRE" />
 
       <main className="acerca-page">
         {/* Tarjeta principal de presentación personal */}

@@ -2,8 +2,9 @@
 
 // Este archivo es el punto de entrada de React.
 // Es el primero que se ejecuta cuando arranca la aplicación.
-
 import React from "react";
+
+//ReactDOM conecta React con el DOM real del navegador.
 import ReactDOM from "react-dom/client";
 
 // Importamos App, que contiene todas las rutas y páginas.

@@ -12,9 +12,6 @@ import { servicioBlog } from "../services/api";
 import ArticleCard from "../components/ArticleCard";
 
 export default function Home() {
-  // Estado para saber el idioma actual de la web.
-  const [idioma, setIdioma] = useState("es");
-
   // Estado donde guardamos todos los artículos que vienen de MockAPI.
   const [articulos, setArticulos] = useState([]);
 
@@ -113,12 +110,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar
-        idioma={idioma}
-        setIdioma={setIdioma}
-        categoriaActiva={categoriaActual}
-
-      />
+      <Navbar categoriaActiva={categoriaActual} />
 
       <main className="magazine-layout">
         {esPortadaPrincipal ? (
@@ -156,7 +148,7 @@ export default function Home() {
             <section className="categorias-salvia">
               <Link
                 to="/categoria/tendencias"
-                className="categoria-salvia-card"
+                className="categoria-salvia-tarjetas"
               >
                 <span className="icono-categoria">⌁</span>
                 <h3>Moda</h3>
@@ -165,7 +157,7 @@ export default function Home() {
 
               <Link
                 to="/categoria/belleza"
-                className="categoria-salvia-card"
+                className="categoria-salvia-tarjetas"
               >
                 <span className="icono-categoria">✧</span>
                 <h3>Belleza</h3>
@@ -174,7 +166,7 @@ export default function Home() {
 
               <Link
                 to="/categoria/estilo"
-                className="categoria-salvia-card"
+                className="categoria-salvia-tarjetas"
               >
                 <span className="icono-categoria">◌</span>
                 <h3>Estilo de vida</h3>
@@ -183,7 +175,7 @@ export default function Home() {
 
               <Link
                 to="/categoria/viviendo"
-                className="categoria-salvia-card"
+                className="categoria-salvia-tarjetas"
               >
                 <span className="icono-categoria">⌂</span>
                 <h3>Viviendo</h3>
@@ -239,7 +231,6 @@ export default function Home() {
                 <img
                   src={articuloDestacado.photo_url}
                   alt={
-                    articuloDestacado[`title_${idioma}`] ||
                     articuloDestacado.title_es ||
                     articuloDestacado.title ||
                     "Artículo destacado"
@@ -254,17 +245,13 @@ export default function Home() {
               </span>
 
               <h2>
-                {articuloDestacado[`title_${idioma}`] ||
-                  articuloDestacado.title_es ||
+                {articuloDestacado.title_es ||
                   articuloDestacado.title ||
                   "Artículo sin título"}
               </h2>
 
               <p>
-                {(articuloDestacado[`content_${idioma}`] ||
-                  articuloDestacado.content_es ||
-                  articuloDestacado.content ||
-                  "").substring(0, 180)}
+                {(articuloDestacado.content_es || articuloDestacado.content || "").substring(0, 180)}
                 ...
               </p>
 
@@ -300,7 +287,6 @@ export default function Home() {
               <ArticleCard
                 key={articulo.id}
                 articulo={articulo}
-                idioma={idioma}
               />
             ))}
           </div>

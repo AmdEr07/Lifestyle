@@ -1,7 +1,7 @@
 // src/App.jsx
 
 // Este archivo es el centro de la aplicación.
-// Aquí se organizan las rutas, es decir, las “páginas” de nuestra web.
+// Aquí se organizan las rutas, es decir, las “páginas” de mi bonito blog.
 
 // Importamos BrowserRouter, Routes y Route para poder tener varias páginas en React. (Enrutador del navegador, rutas y ruta)
 import { BrowserRouter, Routes, Route } from "react-router-dom";

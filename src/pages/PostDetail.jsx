@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react";
 
 // useParams nos permite obtener el id que viene en la URL.
+// Importamos useParams para leer parámetros dinámicos de la URL
 // Link nos permite volver al inicio sin recargar.
 import { useParams, Link } from "react-router-dom";
 
